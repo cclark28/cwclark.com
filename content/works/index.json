@@ -1,0 +1,17 @@
+[
+  { "id": "terminus",                     "title": "Terminus",                        "tags": ["product", "saas", "b2b"],     "featured": true  },
+  { "id": "gungeon",                      "title": "Enter the Gungeon",               "tags": ["game", "brand"],              "featured": true  },
+  { "id": "asian-art-museum-san-francisco","title": "Asian Art Museum SF",            "tags": ["web", "nonprofit"],           "featured": false },
+  { "id": "delivra",                       "title": "Delivra",                        "tags": ["product", "email", "saas"],   "featured": false },
+  { "id": "fieldcraft-survival",           "title": "Fieldcraft Survival",            "tags": ["ecommerce", "brand"],         "featured": false },
+  { "id": "blend-creative-team",           "title": "Blend Creative Team",            "tags": ["agency", "web"],              "featured": false },
+  { "id": "ronin-tactics",                 "title": "Ronin Tactics",                  "tags": ["game", "ux"],                 "featured": false },
+  { "id": "wargaming",                     "title": "Wargaming",                      "tags": ["game", "web"],                "featured": false },
+  { "id": "pokemon-black-white-2",         "title": "Pokémon Black & White 2",        "tags": ["game", "nintendo"],           "featured": false },
+  { "id": "pokemon-rumble-blast",          "title": "Pokémon Rumble Blast",           "tags": ["game", "nintendo"],           "featured": false },
+  { "id": "pokedex-3d-pro",               "title": "Pokédex 3D Pro",                 "tags": ["game", "nintendo", "app"],    "featured": false },
+  { "id": "skycurser",                     "title": "Skycurser",                      "tags": ["game", "indie"],              "featured": false },
+  { "id": "skyfeeder",                     "title": "Skyfeeder",                      "tags": ["product"],                    "featured": false },
+  { "id": "jlo-capital-records-pitch",     "title": "JLO / Capital Records Pitch",    "tags": ["brand", "music"],             "featured": false },
+  { "id": "claravine-test",               "title": "Claravine",                       "tags": ["product", "saas"],            "featured": false }
+]

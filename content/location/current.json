@@ -1,0 +1,14 @@
+{
+  "city": "Indianapolis",
+  "region": "IN",
+  "country": "US",
+  "temp_f": null,
+  "temp_c": null,
+  "condition": null,
+  "wind_mph": null,
+  "wind_dir": null,
+  "humidity": null,
+  "emoji": "🏙️",
+  "updated": null,
+  "note": "Update by running ./_scripts/checkin.sh"
+}

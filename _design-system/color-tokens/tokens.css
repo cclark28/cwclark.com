@@ -1,0 +1,21 @@
+:root {
+  /* Core */
+  --color-bg:       #FFFFFF;  /* Dominant background */
+  --color-text:     #000000;  /* Primary text, key accents */
+
+  /* Neutrals */
+  --color-surface:  #F5F7FA;  /* Cards, light surfaces */
+  --color-border:   #E1E5EB;  /* Borders, dividers */
+  --color-muted:    #9BA3AF;  /* Secondary / muted text */
+
+  /* Spacing scale (8pt base) */
+  --space-1:  0.25rem;   /*  4px */
+  --space-2:  0.5rem;    /*  8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-6:  1.5rem;    /* 24px */
+  --space-8:  2rem;      /* 32px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-24: 6rem;      /* 96px */
+}

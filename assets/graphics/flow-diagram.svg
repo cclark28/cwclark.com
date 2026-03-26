@@ -1,0 +1,36 @@
+<svg viewBox="0 0 480 80" width="100%" style="max-width:480px" xmlns="http://www.w3.org/2000/svg" aria-label="Flow diagram">
+  <!-- Dashed baseline extending past end nodes -->
+  <line x1="50" y1="36" x2="430" y2="36" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Node 1: INIT (larger 8×8) -->
+  <rect x="46" y="32" width="8" height="8" fill="none" stroke="#999" stroke-width="1"/>
+  <!-- Tick above node 1 -->
+  <line x1="50" y1="24" x2="50" y2="32" stroke="#bbb" stroke-width="1"/>
+
+  <!-- Node 2: SCAN (6×6) -->
+  <rect x="147" y="33" width="6" height="6" fill="none" stroke="#999" stroke-width="1"/>
+  <line x1="150" y1="25" x2="150" y2="33" stroke="#bbb" stroke-width="1"/>
+
+  <!-- Node 3: PROC (6×6) -->
+  <rect x="237" y="33" width="6" height="6" fill="none" stroke="#999" stroke-width="1"/>
+  <line x1="240" y1="25" x2="240" y2="33" stroke="#bbb" stroke-width="1"/>
+
+  <!-- Node 4: OUT (6×6) -->
+  <rect x="327" y="33" width="6" height="6" fill="none" stroke="#999" stroke-width="1"/>
+  <line x1="330" y1="25" x2="330" y2="33" stroke="#bbb" stroke-width="1"/>
+
+  <!-- Node 5: END (larger 8×8) -->
+  <rect x="426" y="32" width="8" height="8" fill="none" stroke="#999" stroke-width="1"/>
+  <line x1="430" y1="24" x2="430" y2="32" stroke="#bbb" stroke-width="1"/>
+
+  <!-- Serial number badge -->
+  <rect x="390" y="56" width="40" height="16" rx="0" fill="#1a1a1a"/>
+  <text x="410" y="67" font-family="'Courier New', monospace" font-size="5" fill="#fff" text-anchor="middle" letter-spacing="0.06em">SN:CC·01</text>
+
+  <!-- Labels below each node -->
+  <text x="50" y="52" font-family="'Courier New', monospace" font-size="5" fill="#bbb" text-anchor="middle" letter-spacing="0.06em">INIT · 0.00</text>
+  <text x="150" y="52" font-family="'Courier New', monospace" font-size="5" fill="#bbb" text-anchor="middle" letter-spacing="0.06em">SCAN · 0.24</text>
+  <text x="240" y="52" font-family="'Courier New', monospace" font-size="5" fill="#bbb" text-anchor="middle" letter-spacing="0.06em">PROC · 0.51</text>
+  <text x="330" y="52" font-family="'Courier New', monospace" font-size="5" fill="#bbb" text-anchor="middle" letter-spacing="0.06em">OUT · 0.78</text>
+  <text x="430" y="52" font-family="'Courier New', monospace" font-size="5" fill="#bbb" text-anchor="middle" letter-spacing="0.06em">END · 1.00</text>
+</svg>

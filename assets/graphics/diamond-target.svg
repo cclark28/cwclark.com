@@ -1,0 +1,35 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-label="Diamond target">
+  <!-- Corner brackets at SVG frame corners -->
+  <path d="M8,8 L8,20 M8,8 L20,8" stroke="#ccc" stroke-width="1" fill="none"/>
+  <path d="M232,8 L220,8 M232,8 L232,20" stroke="#ccc" stroke-width="1" fill="none"/>
+  <path d="M8,232 L8,220 M8,232 L20,232" stroke="#ccc" stroke-width="1" fill="none"/>
+  <path d="M232,232 L220,232 M232,232 L232,220" stroke="#ccc" stroke-width="1" fill="none"/>
+
+  <!-- Horizontal dashed line through center -->
+  <line x1="20" y1="120" x2="220" y2="120" stroke="#ddd" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Diamond (rotated square) centered at 120,120, 60×60 -->
+  <polygon points="120,90 150,120 120,150 90,120" fill="none" stroke="#999" stroke-width="1"/>
+
+  <!-- N extension line (from top point of diamond to small square) -->
+  <line x1="120" y1="90" x2="120" y2="36" stroke="#ccc" stroke-width="1"/>
+  <rect x="117" y="32" width="6" height="6" fill="none" stroke="#bbb" stroke-width="1"/>
+
+  <!-- S extension line -->
+  <line x1="120" y1="150" x2="120" y2="202" stroke="#ccc" stroke-width="1"/>
+  <rect x="117" y="202" width="6" height="6" fill="none" stroke="#bbb" stroke-width="1"/>
+
+  <!-- E extension line -->
+  <line x1="150" y1="120" x2="202" y2="120" stroke="#ccc" stroke-width="1"/>
+  <rect x="202" y="117" width="6" height="6" fill="none" stroke="#bbb" stroke-width="1"/>
+
+  <!-- W extension line -->
+  <line x1="90" y1="120" x2="38" y2="120" stroke="#ccc" stroke-width="1"/>
+  <rect x="32" y="117" width="6" height="6" fill="none" stroke="#bbb" stroke-width="1"/>
+
+  <!-- Cardinal labels -->
+  <text x="120" y="28" font-family="'Courier New', monospace" font-size="5" fill="#bbb" text-anchor="middle" letter-spacing="0.08em">N</text>
+  <text x="120" y="220" font-family="'Courier New', monospace" font-size="5" fill="#bbb" text-anchor="middle" letter-spacing="0.08em">S</text>
+  <text x="222" y="122" font-family="'Courier New', monospace" font-size="5" fill="#bbb" text-anchor="start" letter-spacing="0.08em">E</text>
+  <text x="22" y="122" font-family="'Courier New', monospace" font-size="5" fill="#bbb" text-anchor="end" letter-spacing="0.08em">W</text>
+</svg>

@@ -1,0 +1,79 @@
+<svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" aria-label="Node map">
+  <!-- Corner ticks at SVG frame corners -->
+  <path d="M8,8 L8,18 M8,8 L18,8" stroke="#ddd" stroke-width="1" fill="none"/>
+  <path d="M392,8 L380,8 M392,8 L392,18" stroke="#ddd" stroke-width="1" fill="none"/>
+  <path d="M8,272 L8,262 M8,272 L18,272" stroke="#ddd" stroke-width="1" fill="none"/>
+  <path d="M392,272 L380,272 M392,272 L392,262" stroke="#ddd" stroke-width="1" fill="none"/>
+
+  <!-- Node positions (organic scatter):
+    A1: 72,58
+    B2: 180,40
+    C3: 310,72
+    D4: 88,148
+    E5: 220,130
+    F6: 330,175
+    G7: 140,220
+    H8: 260,238
+  -->
+
+  <!-- Connection lines (spanning tree + 2 extra) -->
+  <!-- A1–B2 solid -->
+  <line x1="72" y1="58" x2="180" y2="40" stroke="#ddd" stroke-width="1"/>
+  <!-- B2–C3 solid -->
+  <line x1="180" y1="40" x2="310" y2="72" stroke="#ddd" stroke-width="1"/>
+  <!-- A1–D4 solid -->
+  <line x1="72" y1="58" x2="88" y2="148" stroke="#ddd" stroke-width="1"/>
+  <!-- D4–E5 dashed -->
+  <line x1="88" y1="148" x2="220" y2="130" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+  <!-- E5–C3 dashed -->
+  <line x1="220" y1="130" x2="310" y2="72" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+  <!-- E5–F6 solid -->
+  <line x1="220" y1="130" x2="330" y2="175" stroke="#ddd" stroke-width="1"/>
+  <!-- D4–G7 solid -->
+  <line x1="88" y1="148" x2="140" y2="220" stroke="#ddd" stroke-width="1"/>
+  <!-- G7–H8 solid -->
+  <line x1="140" y1="220" x2="260" y2="238" stroke="#ddd" stroke-width="1"/>
+  <!-- H8–F6 dashed (extra edge) -->
+  <line x1="260" y1="238" x2="330" y2="175" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+  <!-- B2–E5 dashed (extra edge) -->
+  <line x1="180" y1="40" x2="220" y2="130" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Dotted bounding box around cluster D4, G7, H8 (selected group) -->
+  <rect x="74" y="134" width="200" height="116" fill="none" stroke="#ccc" stroke-width="0.8" stroke-dasharray="4,3"/>
+
+  <!-- Node circles -->
+  <!-- A1: anchor (square marker) -->
+  <rect x="69" y="55" width="6" height="6" fill="none" stroke="#bbb" stroke-width="1"/>
+  <circle cx="72" cy="58" r="3" fill="none" stroke="#999" stroke-width="1"/>
+  <text x="78" y="54" font-family="'Courier New', monospace" font-size="5" fill="#bbb" letter-spacing="0.06em">A1</text>
+
+  <!-- B2 -->
+  <circle cx="180" cy="40" r="3" fill="none" stroke="#999" stroke-width="1"/>
+  <text x="186" y="38" font-family="'Courier New', monospace" font-size="5" fill="#bbb" letter-spacing="0.06em">B2</text>
+
+  <!-- C3: anchor (square marker) -->
+  <rect x="307" y="69" width="6" height="6" fill="none" stroke="#bbb" stroke-width="1"/>
+  <circle cx="310" cy="72" r="3" fill="none" stroke="#999" stroke-width="1"/>
+  <text x="318" y="70" font-family="'Courier New', monospace" font-size="5" fill="#bbb" letter-spacing="0.06em">C3</text>
+
+  <!-- D4 -->
+  <circle cx="88" cy="148" r="3" fill="none" stroke="#999" stroke-width="1"/>
+  <text x="94" y="146" font-family="'Courier New', monospace" font-size="5" fill="#bbb" letter-spacing="0.06em">D4</text>
+
+  <!-- E5: anchor (square marker) -->
+  <rect x="217" y="127" width="6" height="6" fill="none" stroke="#bbb" stroke-width="1"/>
+  <circle cx="220" cy="130" r="3" fill="none" stroke="#999" stroke-width="1"/>
+  <text x="228" y="128" font-family="'Courier New', monospace" font-size="5" fill="#bbb" letter-spacing="0.06em">E5</text>
+
+  <!-- F6 -->
+  <circle cx="330" cy="175" r="3" fill="none" stroke="#999" stroke-width="1"/>
+  <text x="336" y="173" font-family="'Courier New', monospace" font-size="5" fill="#bbb" letter-spacing="0.06em">F6</text>
+
+  <!-- G7 -->
+  <circle cx="140" cy="220" r="3" fill="none" stroke="#999" stroke-width="1"/>
+  <text x="146" y="218" font-family="'Courier New', monospace" font-size="5" fill="#bbb" letter-spacing="0.06em">G7</text>
+
+  <!-- H8 -->
+  <circle cx="260" cy="238" r="3" fill="none" stroke="#999" stroke-width="1"/>
+  <text x="266" y="236" font-family="'Courier New', monospace" font-size="5" fill="#bbb" letter-spacing="0.06em">H8</text>
+</svg>

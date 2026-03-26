@@ -64,4 +64,12 @@ else
     git push
   fi
 fi
+
+# Push to Google Drive (silent, runs in background)
+SCRIPT_DIR="$(dirname "$0")"
+if rclone listremotes 2>/dev/null | grep -q "^cwclark-gdrive:"; then
+  echo "  → Syncing to Google Drive..."
+  bash "$SCRIPT_DIR/gdrive-push.sh" > /dev/null 2>&1 &
+  echo "  ✓ Google Drive sync started (background)"
+fi
 echo ""

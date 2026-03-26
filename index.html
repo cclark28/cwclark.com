@@ -345,75 +345,244 @@ gtag("config", "GT-M6QPZDV");
 <meta name="msapplication-TileImage" content="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/cropped-favicon-1.png?fit=270%2C270&#038;ssl=1" />
 		<style>html{margin-top:0px!important;}#wpadminbar{top:auto!important;bottom:0;}</style>
 	<style>
-	/* ── Weather Footer Widget ───────────────────────────────────────── */
-	#cw-weather-section {
-	  border-top: 1px solid #E1E5EB;
-	  border-bottom: 1px solid #E1E5EB;
+	/* ═══════════════════════════════════════════════════════════════════
+	   MICROGRAPHICS INSTRUMENT STRIP
+	   ═══════════════════════════════════════════════════════════════════ */
+	#cw-instrument {
+	  width: 100%;
+	  border-bottom: 1px solid #000;
 	  background: #fff;
+	  font-family: "TG-Frekuent-Mono-Regular", "Courier New", monospace;
 	}
-	#cw-weather-section[hidden] { display: none; }
-	#cw-weather-section .column .content-wrapper {
-	  padding-top: 1rem !important;
-	  padding-bottom: 1rem !important;
-	}
-	#cw-weather-section p {
-	  margin: 0 0 0.2rem;
-	  font-family: "neue-haas-grotesk-text", system-ui, sans-serif;
-	  font-size: 0.75rem;
-	  line-height: 1.5;
-	  color: #000;
-	}
-	#cw-weather-section .cw-location {
-	  font-family: "neue-haas-grotesk-text", system-ui, sans-serif;
-	  font-weight: 700;
-	  font-size: 0.75rem;
-	  letter-spacing: 0.01em;
-	  margin-bottom: 0.2rem !important;
-	}
-	#cw-weather-section .cw-temp {
-	  font-family: "neue-haas-grotesk-text", system-ui, sans-serif;
-	  font-weight: 700;
-	  font-size: 0.75rem;
-	  font-variant-numeric: tabular-nums;
-	  letter-spacing: -0.01em;
-	  margin-bottom: 0.2rem !important;
-	}
-	#cw-weather-section .cw-meta {
-	  font-weight: 400;
-	  color: #9BA3AF;
-	  font-size: 0.75rem;
-	}
-	#cw-weather-section .cw-divider {
-	  display: inline-block;
-	  width: 1px;
-	  height: 0.65rem;
-	  background: #E1E5EB;
-	  vertical-align: middle;
-	  margin: 0 0.4rem;
-	}
-	/* Analog clock */
-	#cw-weather-section .cw-clock-wrap {
+	.cw-instr-wrap {
 	  display: flex;
-	  align-items: center;
-	  justify-content: center;
+	  align-items: stretch;
+	  width: 100%;
 	}
-	#cw-clock {
-	  width: 36px;
-	  height: 36px;
-	  display: block;
-	  overflow: visible;
-	}
-	/* Right column */
-	#cw-weather-section .cw-right-wrap {
+	.cw-block {
 	  display: flex;
 	  flex-direction: column;
 	  justify-content: center;
-	  align-items: flex-end;
-	  text-align: right;
+	  padding: 0.6rem 1.25rem;
+	  border-right: 1px solid #000;
+	  min-width: 0;
+	}
+	.cw-block:last-child { border-right: none; }
+	#cwb-temp  { flex: 0 0 auto; min-width: 7rem; }
+	#cwb-loc   { flex: 1 1 auto; }
+	#cwb-time  { flex: 0 0 auto; min-width: 13rem; }
+	.cw-label {
+	  display: block;
+	  font-family: "TG-Frekuent-Mono-Light", "Courier New", monospace;
+	  font-size: 0.5rem;
+	  letter-spacing: 0.14em;
+	  color: #9BA3AF;
+	  text-transform: uppercase;
+	  margin-bottom: 0.3rem;
+	  line-height: 1;
+	}
+	.cw-val {
+	  display: block;
+	  font-family: "TG-Frekuent-Mono-Regular", "Courier New", monospace;
+	  font-size: 0.75rem;
+	  font-variant-numeric: tabular-nums;
+	  color: #000;
+	  line-height: 1.3;
+	  white-space: nowrap;
+	}
+	.cw-val--sub {
+	  font-family: "TG-Frekuent-Mono-Light", "Courier New", monospace;
+	  font-size: 0.6rem;
+	  color: #9BA3AF;
+	  line-height: 1.4;
+	}
+	/* Time block inner layout */
+	.cw-time-row {
+	  display: flex;
+	  align-items: center;
+	  gap: 0.6rem;
+	}
+	#cw-clock {
+	  width: 28px;
+	  height: 28px;
+	  flex-shrink: 0;
+	  display: block;
+	}
+	/* Mobile: stack blocks */
+	@media (max-width: 543px) {
+	  .cw-instr-wrap { flex-direction: column; }
+	  .cw-block { border-right: none; border-bottom: 1px solid #000; padding: 0.55rem 1rem; }
+	  .cw-block:last-child { border-bottom: none; }
+	  #cwb-temp, #cwb-loc, #cwb-time { min-width: 0; flex: none; width: 100%; }
+	}
+
+	/* ═══════════════════════════════════════════════════════════════════
+	   12-COLUMN GRID · 8px BASELINE SYSTEM
+	   ═══════════════════════════════════════════════════════════════════ */
+	/* Lock content to 1200px max-width; header/footer span full viewport */
+	.container {
+	  max-width: 1200px !important;
+	  margin-right: auto !important;
+	  margin-left: auto !important;
+	  padding-left: 24px !important;   /* 3 × 8px */
+	  padding-right: 24px !important;
+	  width: 100% !important;
+	  box-sizing: border-box !important;
+	}
+	/* Instrument strip and overlay menu use full width — override container there */
+	#cw-instrument .cw-instr-wrap { padding-left: 24px; padding-right: 24px; box-sizing: border-box; }
+	/* Sections: 8px-based vertical breathing room */
+	.content-block { padding-top: 0 !important; padding-bottom: 0 !important; }
+	.content-wrapper { padding-top: 16px; padding-bottom: 16px; }
+	/* Row gutters: 16px (2 × 8px) */
+	.row { margin-left: -8px !important; margin-right: -8px !important; }
+	.column { padding-left: 8px !important; padding-right: 8px !important; }
+	/* Prevent horizontal overflow */
+	body { overflow-x: hidden; }
+	#content-holder, .sections { max-width: 100%; overflow-x: hidden; }
+
+	/* ═══════════════════════════════════════════════════════════════════
+	   NAV: hide default text links, show custom hamburger
+	   ═══════════════════════════════════════════════════════════════════ */
+	.nav_diz8n37o0 .standard.navbar-right { display: none !important; }
+	.nav_diz8n37o0 .hamburger.navbar-right { display: none !important; }
+
+	#cw-hamburger {
+	  position: absolute;
+	  right: 0;
+	  top: 50%;
+	  transform: translateY(-50%);
+	  background: none;
+	  border: none;
+	  cursor: pointer;
+	  padding: 0.5rem;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  z-index: 9999;
+	  transition: opacity 150ms ease;
+	}
+	#cw-hamburger:hover { opacity: 0.5; }
+	#cw-hamburger:focus-visible {
+	  outline: 2px solid #000;
+	  outline-offset: 2px;
+	}
+	#cw-hamburger svg { display: block; overflow: visible; }
+	/* Crosshair → X transition */
+	#cw-hamburger .ch-h,
+	#cw-hamburger .ch-v { transition: transform 200ms ease; transform-origin: center; }
+	#cw-hamburger.is-open .ch-h { transform: rotate(45deg); }
+	#cw-hamburger.is-open .ch-v { transform: rotate(45deg); }
+	#cw-hamburger.is-open .ch-circle { opacity: 0; transition: opacity 150ms ease; }
+	#cw-hamburger .ch-circle { transition: opacity 150ms ease; }
+
+	/* ═══════════════════════════════════════════════════════════════════
+	   MEGA MENU OVERLAY
+	   ═══════════════════════════════════════════════════════════════════ */
+	#overlay-menu {
+	  display: none;
+	  position: fixed;
+	  inset: 0;
+	  background: #fff;
+	  z-index: 9990;
+	  overflow-y: auto;
+	  padding: 0;
+	}
+	#overlay-menu.cw-mega-open { display: block; }
+
+	.mega-inner {
+	  max-width: 1200px;
+	  margin: 0 auto;
+	  padding: 2rem 2.5rem 4rem;
+	}
+	.mega-top {
+	  display: flex;
+	  align-items: flex-start;
+	  justify-content: space-between;
+	  padding-bottom: 1.5rem;
+	  border-bottom: 1px solid #E1E5EB;
+	  margin-bottom: 2rem;
+	}
+	.mega-nav-links { display: flex; flex-direction: column; gap: 0.25rem; }
+	.mega-nav-links a {
+	  font-family: "neue-haas-grotesk-display", sans-serif;
+	  font-weight: 700;
+	  font-size: 2rem;
+	  color: #000;
+	  text-decoration: none;
+	  line-height: 1.15;
+	  transition: opacity 150ms ease;
+	}
+	.mega-nav-links a:hover { opacity: 0.4; }
+	.mega-close {
+	  background: none;
+	  border: none;
+	  cursor: pointer;
+	  padding: 0.4rem;
+	  margin-top: 0.3rem;
+	  flex-shrink: 0;
+	}
+	.mega-close:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
+	.mega-close:hover svg { opacity: 0.4; }
+
+	.mega-section-label {
+	  font-family: "TG-Frekuent-Mono-Light", monospace;
+	  font-size: 0.55rem;
+	  letter-spacing: 0.14em;
+	  text-transform: uppercase;
+	  color: #9BA3AF;
+	  margin-bottom: 1.25rem;
+	  display: block;
+	}
+	.mega-grid {
+	  display: grid;
+	  grid-template-columns: repeat(4, 1fr);
+	  gap: 1.5rem 1.25rem;
+	}
+	.mega-card {
+	  display: block;
+	  text-decoration: none;
+	  color: #000;
+	}
+	.mega-card:hover .mega-card-img { opacity: 0.7; }
+	.mega-card:hover .mega-card-title { opacity: 0.5; }
+	.mega-card-img {
+	  width: 100%;
+	  aspect-ratio: 16/9;
+	  object-fit: cover;
+	  display: block;
+	  background: #F5F7FA;
+	  border: 1px solid #E1E5EB;
+	  transition: opacity 200ms ease;
+	}
+	.mega-card-img-placeholder {
+	  width: 100%;
+	  aspect-ratio: 16/9;
+	  background: #F5F7FA;
+	  border: 1px solid #E1E5EB;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  transition: opacity 200ms ease;
+	}
+	.mega-card:hover .mega-card-img-placeholder { opacity: 0.6; }
+	.mega-card-title {
+	  font-family: "neue-haas-grotesk-text", sans-serif;
+	  font-size: 0.75rem;
+	  font-weight: 400;
+	  margin-top: 0.5rem;
+	  line-height: 1.4;
+	  transition: opacity 200ms ease;
+	}
+	@media (max-width: 991px) {
+	  .mega-grid { grid-template-columns: repeat(3, 1fr); }
+	  .mega-nav-links a { font-size: 1.6rem; }
 	}
 	@media (max-width: 543px) {
-	  #cw-weather-section .cw-clock-wrap { justify-content: flex-start; }
-	  #cw-weather-section .cw-right-wrap { align-items: flex-start; text-align: left; }
+	  .mega-inner { padding: 1.25rem 1rem 3rem; }
+	  .mega-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem 0.75rem; }
+	  .mega-nav-links a { font-size: 1.4rem; }
+	  .mega-top { padding-bottom: 1rem; margin-bottom: 1.25rem; }
 	}
 	</style>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -444,19 +613,141 @@ gtag("config", "GT-M6QPZDV");
 <li id="menu-item-1783" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1783"><a href="info.html"><span>Info</span></a></li>
 </ul></nav>
 									<div class="hamburger navbar-right semplice-menu"><a class="open-menu menu-icon"><span></span></a></div>
-								</div>
+								<button id="cw-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="overlay-menu">
+								  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+								    <line class="ch-h" x1="1" y1="11" x2="21" y2="11" stroke="#000" stroke-width="1"/>
+								    <line class="ch-v" x1="11" y1="1" x2="11" y2="21" stroke="#000" stroke-width="1"/>
+								    <circle class="ch-circle" cx="11" cy="11" r="2.5" stroke="#000" stroke-width="1" fill="none"/>
+								  </svg>
+								</button>
 							</div>
-						</header>
-						
-				<div id="overlay-menu">
-					<div class="overlay-menu-inner" data-xl-width="12">
-						<nav class="overlay-nav" data-justify="center" data-align="align-middle" data-font="font_tfh2r2tp2">
-							<ul class="container"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-824 current_page_item menu-item-1010"><a href="index.html" aria-current="page"><span>Labs</span></a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1783"><a href="info.html"><span>Info</span></a></li>
-</ul>
-						</nav>
-					</div>
-				</div>
+						</div>
+					</header>
+
+	<!-- Micrographics Instrument Strip -->
+	<div id="cw-instrument" aria-label="Location, weather and time">
+	  <div class="cw-instr-wrap">
+	    <div class="cw-block" id="cwb-temp">
+	      <span class="cw-label">TEMP</span>
+	      <span class="cw-val" id="cw-temp-f">—</span>
+	      <span class="cw-val cw-val--sub" id="cw-temp-c">—</span>
+	    </div>
+	    <div class="cw-block" id="cwb-loc">
+	      <span class="cw-label">LOC</span>
+	      <span class="cw-val" id="cw-city">—</span>
+	      <span class="cw-val cw-val--sub" id="cw-condition">—</span>
+	    </div>
+	    <div class="cw-block" id="cwb-time">
+	      <span class="cw-label">TIME</span>
+	      <div class="cw-time-row">
+	        <svg id="cw-clock" viewBox="0 0 28 28" aria-hidden="true">
+	          <circle cx="14" cy="14" r="12.5" fill="none" stroke="#000" stroke-width="0.75"/>
+	          <line x1="14" y1="1.5" x2="14" y2="4" stroke="#000" stroke-width="1"/>
+	          <line x1="20.6" y1="3.38" x2="19.6" y2="5.11" stroke="#000" stroke-width="0.6"/>
+	          <line x1="24.62" y1="7.4" x2="22.89" y2="8.4" stroke="#000" stroke-width="0.6"/>
+	          <line x1="26.5" y1="14" x2="24" y2="14" stroke="#000" stroke-width="1"/>
+	          <line x1="24.62" y1="20.6" x2="22.89" y2="19.6" stroke="#000" stroke-width="0.6"/>
+	          <line x1="20.6" y1="24.62" x2="19.6" y2="22.89" stroke="#000" stroke-width="0.6"/>
+	          <line x1="14" y1="26.5" x2="14" y2="24" stroke="#000" stroke-width="1"/>
+	          <line x1="7.4" y1="24.62" x2="8.4" y2="22.89" stroke="#000" stroke-width="0.6"/>
+	          <line x1="3.38" y1="20.6" x2="5.11" y2="19.6" stroke="#000" stroke-width="0.6"/>
+	          <line x1="1.5" y1="14" x2="4" y2="14" stroke="#000" stroke-width="1"/>
+	          <line x1="3.38" y1="7.4" x2="5.11" y2="8.4" stroke="#000" stroke-width="0.6"/>
+	          <line x1="7.4" y1="3.38" x2="8.4" y2="5.11" stroke="#000" stroke-width="0.6"/>
+	          <line id="cw-hour"   x1="14" y1="14" x2="14" y2="7.5"  stroke="#000" stroke-width="1.2" stroke-linecap="round"/>
+	          <line id="cw-minute" x1="14" y1="14" x2="14" y2="3.5" stroke="#000" stroke-width="0.75" stroke-linecap="round"/>
+	          <circle cx="14" cy="14" r="0.8" fill="#000"/>
+	        </svg>
+	        <div>
+	          <span class="cw-val" id="cw-time-display">—</span>
+	          <span class="cw-val cw-val--sub" id="cw-date-display">—</span>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div id="overlay-menu">
+	  <div class="mega-inner">
+	    <div class="mega-top">
+	      <div class="mega-nav-links">
+	        <a href="index.html">Labs</a>
+	        <a href="info.html">Info</a>
+	      </div>
+	      <button class="mega-close" id="cw-mega-close" aria-label="Close navigation menu">
+	        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+	          <line x1="2" y1="2" x2="20" y2="20" stroke="#000" stroke-width="1.5"/>
+	          <line x1="20" y1="2" x2="2" y2="20" stroke="#000" stroke-width="1.5"/>
+	        </svg>
+	      </button>
+	    </div>
+	    <span class="mega-section-label">Work</span>
+	    <div class="mega-grid">
+	      <a class="mega-card" href="works/terminus.html">
+	        <img class="mega-card-img" src="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/Terminus.png?fit=700,400&ssl=1" alt="Terminus" loading="lazy">
+	        <span class="mega-card-title">Terminus</span>
+	      </a>
+	      <a class="mega-card" href="works/gungeon.html">
+	        <img class="mega-card-img" src="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/gun.jpg?fit=700,400&ssl=1" alt="Enter the Gungeon" loading="lazy">
+	        <span class="mega-card-title">Enter the Gungeon</span>
+	      </a>
+	      <a class="mega-card" href="works/asian-art-museum-san-francisco.html">
+	        <img class="mega-card-img" src="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/asian-art-museum.jpg?fit=700,400&ssl=1" alt="Asian Art Museum SF" loading="lazy">
+	        <span class="mega-card-title">Asian Art Museum SF</span>
+	      </a>
+	      <a class="mega-card" href="works/delivra.html">
+	        <img class="mega-card-img" src="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/Delivra-1.png?fit=700,400&ssl=1" alt="Delivra" loading="lazy">
+	        <span class="mega-card-title">Delivra</span>
+	      </a>
+	      <a class="mega-card" href="works/fieldcraft-survival.html">
+	        <img class="mega-card-img" src="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/fieldcraft-survival-thumbnail.jpg?fit=700,400&ssl=1" alt="Fieldcraft Survival" loading="lazy">
+	        <span class="mega-card-title">Fieldcraft Survival</span>
+	      </a>
+	      <a class="mega-card" href="works/blend-creative-team.html">
+	        <img class="mega-card-img" src="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/blendcreativeteam.jpg?fit=700,400&ssl=1" alt="Blend Creative Team" loading="lazy">
+	        <span class="mega-card-title">Blend Creative Team</span>
+	      </a>
+	      <a class="mega-card" href="works/ronin-tactics.html">
+	        <img class="mega-card-img" src="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/ronin-tactics-hero.png?fit=700,400&ssl=1" alt="Ronin Tactics" loading="lazy">
+	        <span class="mega-card-title">Ronin Tactics</span>
+	      </a>
+	      <a class="mega-card" href="works/wargaming.html">
+	        <img class="mega-card-img" src="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/wargaming-small-cover.jpg?fit=700,400&ssl=1" alt="Wargaming" loading="lazy">
+	        <span class="mega-card-title">Wargaming</span>
+	      </a>
+	      <a class="mega-card" href="works/pokemon-black-white-2.html">
+	        <img class="mega-card-img" src="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/Pokemon-black-and-white-version-2-hero-image.png?fit=700,400&ssl=1" alt="Pokémon Black &amp; White 2" loading="lazy">
+	        <span class="mega-card-title">Pokémon Black &amp; White 2</span>
+	      </a>
+	      <a class="mega-card" href="works/pokemon-rumble-blast.html">
+	        <img class="mega-card-img" src="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/rumble-blast-image.jpg?fit=700,400&ssl=1" alt="Pokémon Rumble Blast" loading="lazy">
+	        <span class="mega-card-title">Pokémon Rumble Blast</span>
+	      </a>
+	      <a class="mega-card" href="works/pokedex-3d-pro.html">
+	        <img class="mega-card-img" src="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/pokedex-3dpro.jpg?fit=700,400&ssl=1" alt="Pokédex 3D Pro" loading="lazy">
+	        <span class="mega-card-title">Pokédex 3D Pro</span>
+	      </a>
+	      <a class="mega-card" href="works/skycurser.html">
+	        <img class="mega-card-img" src="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/skycurser-logo.jpg?fit=700,400&ssl=1" alt="Skycurser" loading="lazy">
+	        <span class="mega-card-title">Skycurser</span>
+	      </a>
+	      <a class="mega-card" href="works/skyfeeder.html">
+	        <img class="mega-card-img" src="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/pancho-upside-down.jpg?fit=700,400&ssl=1" alt="Skyfeeder" loading="lazy">
+	        <span class="mega-card-title">Skyfeeder</span>
+	      </a>
+	      <a class="mega-card" href="works/jlo-capital-records-pitch.html">
+	        <img class="mega-card-img" src="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/jlo-thumbnail.jpg?fit=700,400&ssl=1" alt="JLO / Capital Records Pitch" loading="lazy">
+	        <span class="mega-card-title">JLO / Capital Records Pitch</span>
+	      </a>
+	      <a class="mega-card" href="works/claravine-test.html">
+	        <div class="mega-card-img-placeholder">
+	          <span style="font-family:'TG-Frekuent-Mono-Light',monospace;font-size:0.6rem;color:#9BA3AF;letter-spacing:0.1em;text-transform:uppercase;">Claravine</span>
+	        </div>
+	        <span class="mega-card-title">Claravine</span>
+	      </a>
+	    </div>
+	  </div>
+	</div>
 			
 					<div id="content-holder" data-active-post="824">		
 			<div id="content-824" class="content-container active-content ">
@@ -956,60 +1247,7 @@ gtag("config", "GT-M6QPZDV");
 			
 					</div>
 				</div></div></div>
-					</section>				
-				
-					<!-- ── Weather Footer Widget ───────────────────────────────── -->
-				<section id="cw-weather-section" aria-label="Current location and weather" hidden>
-				  <div class="container">
-				    <div class="row">
-
-				      <!-- Col 1: 7/12 — location + conditions -->
-				      <div class="column" data-xl-width="7" data-sm-width="6" data-xs-width="12">
-				        <div class="content-wrapper">
-				          <p id="cw-city" class="cw-location" aria-live="polite">—</p>
-				          <p class="cw-meta">
-				            <span id="cw-condition">—</span>
-				            <span class="cw-divider" aria-hidden="true"></span>
-				            Wind <span id="cw-wind">—</span>
-				            <span class="cw-divider" aria-hidden="true"></span>
-				            Humidity <span id="cw-humidity">—</span>
-				          </p>
-				        </div>
-				      </div>
-
-				      <!-- Col 2: 2/12 — analog clock -->
-				      <div class="column" data-xl-width="2" data-sm-width="2" data-xs-width="4">
-				        <div class="content-wrapper cw-clock-wrap">
-				          <svg id="cw-clock" viewBox="0 0 40 40" aria-label="Current local time" role="img">
-				            <!-- Face -->
-				            <circle cx="20" cy="20" r="18" fill="none" stroke="#000" stroke-width="1"/>
-				            <!-- Cardinal ticks -->
-				            <line x1="20" y1="3"  x2="20" y2="6"  stroke="#000" stroke-width="1"/>
-				            <line x1="37" y1="20" x2="34" y2="20" stroke="#000" stroke-width="1"/>
-				            <line x1="20" y1="37" x2="20" y2="34" stroke="#000" stroke-width="1"/>
-				            <line x1="3"  y1="20" x2="6"  y2="20" stroke="#000" stroke-width="1"/>
-				            <!-- Hour hand -->
-				            <line id="cw-hour"   x1="20" y1="20" x2="20" y2="10" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-				            <!-- Minute hand -->
-				            <line id="cw-minute" x1="20" y1="20" x2="20" y2="6"  stroke="#000" stroke-width="1"   stroke-linecap="round"/>
-				            <!-- Centre dot -->
-				            <circle cx="20" cy="20" r="1" fill="#000"/>
-				          </svg>
-				        </div>
-				      </div>
-
-				      <!-- Col 3: 3/12 — temp + date -->
-				      <div class="column" data-xl-width="3" data-sm-width="4" data-xs-width="8">
-				        <div class="content-wrapper cw-right-wrap">
-				          <p class="cw-temp" id="cw-temp">—</p>
-				          <p class="cw-meta" id="cw-updated">—</p>
-				        </div>
-				      </div>
-
-				    </div>
-				  </div>
-				</section>
-				<!-- ── End Weather Widget ──────────────────────────────────── -->
+					</section>
 
 				<section id="section_5a7ba044f" class="content-block" data-column-mode-sm="single" data-column-mode-xs="single" data-layout="fluid" data-height="dynamic" data-justify="center" data-valign="center" data-gutter="no" >
 						<div class="container"><div id="row_cd8c5f6cc" class="row"><div id="column_8eff47ce2" class="column" data-xl-width="12" data-valign="stretch" >
@@ -1180,66 +1418,90 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 });</script>
 
 	<script>
-	/* ── Weather Footer Widget — reads content/location/current.json ── */
+	/* ── Instrument Strip: clock + weather ── */
 	(function () {
-	  var widget = document.getElementById('cw-weather-section');
-	  if (!widget) return;
-
-	  /* ── Analog clock ── */
-	  var cx = 20, cy = 20;
+	  var cx = 14, cy = 14;
 	  var hourHand   = document.getElementById('cw-hour');
 	  var minuteHand = document.getElementById('cw-minute');
+	  var timeEl  = document.getElementById('cw-time-display');
+	  var dateEl  = document.getElementById('cw-date-display');
 
-	  function handEnd(cx, cy, angleDeg, length) {
+	  function handEnd(angleDeg, length) {
 	    var rad = (angleDeg - 90) * Math.PI / 180;
 	    return { x: cx + length * Math.cos(rad), y: cy + length * Math.sin(rad) };
 	  }
 
+	  function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+
 	  function tickClock() {
 	    var now = new Date();
-	    var h = now.getHours() % 12;
-	    var m = now.getMinutes();
-	    var s = now.getSeconds();
+	    var h = now.getHours() % 12, m = now.getMinutes(), s = now.getSeconds();
 	    var hourDeg   = (h * 30) + (m * 0.5);
 	    var minuteDeg = (m * 6)  + (s * 0.1);
-	    var hEnd = handEnd(cx, cy, hourDeg,   9);
-	    var mEnd = handEnd(cx, cy, minuteDeg, 13);
+	    var hEnd = handEnd(hourDeg, 6);
+	    var mEnd = handEnd(minuteDeg, 10.5);
 	    if (hourHand)   { hourHand.setAttribute('x2',   hEnd.x); hourHand.setAttribute('y2',   hEnd.y); }
 	    if (minuteHand) { minuteHand.setAttribute('x2', mEnd.x); minuteHand.setAttribute('y2', mEnd.y); }
+	    var hh = now.getHours(), mm = now.getMinutes();
+	    var ampm = hh >= 12 ? 'PM' : 'AM';
+	    var h12 = hh % 12 || 12;
+	    if (timeEl) timeEl.textContent = pad2(h12) + ':' + pad2(mm) + ' ' + ampm;
+	    var days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+	    var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+	    if (dateEl) dateEl.textContent = days[now.getDay()] + ' ' + pad2(now.getDate()) + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
 	  }
 
 	  tickClock();
 	  setInterval(tickClock, 1000);
 
-	  /* ── Weather data ── */
+	  /* Weather data */
 	  fetch('content/location/current.json')
 	    .then(function (r) { return r.ok ? r.json() : null; })
 	    .then(function (d) {
-	      if (!d || !d.city || !d.condition) return;
-
-	      var city     = d.city + (d.region ? ', ' + d.region : '');
-	      var tempF    = d.temp_f != null ? d.temp_f + '°F' : '—';
-	      var tempC    = d.temp_c != null ? ' / ' + d.temp_c + '°C' : '';
-	      var wind     = d.wind_mph != null ? d.wind_mph + ' mph ' + (d.wind_dir || '') : '—';
-	      var humidity = d.humidity != null ? d.humidity + '%' : '—';
-	      var updated  = d.updated
-	        ? (function (s) {
-	            var dt = new Date(s);
-	            return isNaN(dt) ? s.slice(0, 10)
-	              : dt.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
-	          })(d.updated)
-	        : '';
-
-	      document.getElementById('cw-city').textContent      = city;
-	      document.getElementById('cw-condition').textContent = d.condition;
-	      document.getElementById('cw-wind').textContent      = wind;
-	      document.getElementById('cw-humidity').textContent  = humidity;
-	      document.getElementById('cw-temp').textContent      = tempF + tempC;
-	      document.getElementById('cw-updated').textContent   = updated;
-
-	      widget.removeAttribute('hidden');
+	      if (!d) return;
+	      var tf = document.getElementById('cw-temp-f');
+	      var tc = document.getElementById('cw-temp-c');
+	      var ci = document.getElementById('cw-city');
+	      var co = document.getElementById('cw-condition');
+	      if (tf && d.temp_f != null) tf.textContent = d.temp_f + '\u00b0F';
+	      if (tc && d.temp_c != null) tc.textContent = d.temp_c + '\u00b0C  ' + (d.emoji || '');
+	      if (ci && d.city) ci.textContent = d.city.toUpperCase() + (d.region ? '  ·  ' + d.region.toUpperCase() : '');
+	      if (co && d.condition) co.textContent = d.condition.toUpperCase() + (d.wind_mph ? '  ' + d.wind_mph + 'MPH ' + (d.wind_dir || '') : '');
 	    })
-	    .catch(function () { /* fail silently — widget stays hidden */ });
+	    .catch(function () {});
+	}());
+
+	/* ── Mega menu open / close ── */
+	(function () {
+	  var ham  = document.getElementById('cw-hamburger');
+	  var close = document.getElementById('cw-mega-close');
+	  var menu = document.getElementById('overlay-menu');
+	  if (!ham || !menu) return;
+
+	  function openMenu() {
+	    menu.classList.add('cw-mega-open');
+	    ham.classList.add('is-open');
+	    ham.setAttribute('aria-expanded', 'true');
+	    document.body.style.overflow = 'hidden';
+	  }
+	  function closeMenu() {
+	    menu.classList.remove('cw-mega-open');
+	    ham.classList.remove('is-open');
+	    ham.setAttribute('aria-expanded', 'false');
+	    document.body.style.overflow = '';
+	  }
+
+	  ham.addEventListener('click', function () {
+	    menu.classList.contains('cw-mega-open') ? closeMenu() : openMenu();
+	  });
+	  if (close) close.addEventListener('click', closeMenu);
+	  document.addEventListener('keydown', function (e) {
+	    if (e.key === 'Escape') closeMenu();
+	  });
+
+	  /* Prevent Semplice's own menu listener from also firing */
+	  var sempliceHam = document.querySelector('.hamburger.semplice-menu');
+	  if (sempliceHam) sempliceHam.style.pointerEvents = 'none';
 	}());
 	</script>
 	</body>

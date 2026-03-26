@@ -790,6 +790,166 @@ gtag("config", "GT-M6QPZDV");
   .cw-footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .cw-footer-bottom { flex-wrap: wrap; gap: 16px; }
 }
+	/* ═══════════════════════════════════════════════════════════════════
+	   TEXT LOGO · SEO READABLE
+	   ═══════════════════════════════════════════════════════════════════ */
+	.cw-logo-link { text-decoration: none; }
+	.cw-logo-text {
+	  font-family: "neue-haas-grotesk-display", sans-serif;
+	  font-weight: 700;
+	  font-size: 1rem;
+	  letter-spacing: 0.01em;
+	  color: #000;
+	  line-height: 1;
+	  text-transform: uppercase;
+	}
+
+	/* ═══════════════════════════════════════════════════════════════════
+	   SWISS 4-ZONE NAV: tagline + contact (desktop ≥ 1024px)
+	   ═══════════════════════════════════════════════════════════════════ */
+	.cw-nav-tagline,
+	.cw-nav-contact {
+	  display: none;
+	  position: absolute;
+	  top: 50%;
+	  transform: translateY(-50%);
+	  font-family: "neue-haas-grotesk-text", sans-serif;
+	  font-size: 0.65rem;
+	  color: #000;
+	  line-height: 1.35;
+	  white-space: nowrap;
+	}
+	.cw-nav-tagline { left: 50%; transform: translate(-50%, -50%); }
+	.cw-nav-contact { right: 3rem; }
+	.cw-nav-contact a { color: #000; text-decoration: none; transition: opacity 150ms; }
+	.cw-nav-contact a:hover { opacity: 0.4; }
+	@media (min-width: 1024px) {
+	  .cw-nav-tagline, .cw-nav-contact { display: block; }
+	  /* Push hamburger further right to clear contact zone */
+	  #cw-hamburger { right: 0; }
+	}
+	@media (min-width: 1280px) {
+	  .cw-nav-contact { right: 3rem; }
+	}
+
+	/* ═══════════════════════════════════════════════════════════════════
+	   BREAKPOINTS — extended scale
+	   XS  < 480    phone portrait
+	   SM  480–767  phone landscape / small tablet
+	   MD  768–1023 tablet portrait
+	   LG  1024–1279 laptop / tablet landscape
+	   XL  1280–1535 desktop
+	   2XL 1536–1919 large desktop
+	   3XL ≥ 1920   wide / 4K
+	   ═══════════════════════════════════════════════════════════════════ */
+	:root {
+	  --bp-xs:  480px;
+	  --bp-sm:  768px;
+	  --bp-md:  1024px;
+	  --bp-lg:  1280px;
+	  --bp-xl:  1536px;
+	  --bp-2xl: 1920px;
+	  /* 12-col grid */
+	  --col-count: 12;
+	  --col-gutter: 16px;   /* 2 × 8px */
+	  --container-pad: 24px; /* 3 × 8px */
+	  /* Baseline */
+	  --baseline: 8px;
+	  --line-height-base: 1.5rem; /* 24px = 3 × baseline */
+	}
+	/* Container max-widths per breakpoint */
+	.container {
+	  max-width: 1200px !important;
+	}
+	@media (min-width: 1536px) {
+	  .container { max-width: 1440px !important; }
+	  body { font-size: 112.5%; }
+	}
+	@media (min-width: 1920px) {
+	  .container { max-width: 1680px !important; }
+	  body { font-size: 118.75%; }
+	}
+
+	/* ═══════════════════════════════════════════════════════════════════
+	   GRID OVERLAY
+	   ═══════════════════════════════════════════════════════════════════ */
+	.cw-grid-overlay {
+	  position: fixed;
+	  inset: 0;
+	  z-index: 99990;
+	  pointer-events: none;
+	  opacity: 0;
+	  transition: opacity 180ms ease;
+	  display: flex;
+	  flex-direction: column;
+	}
+	.cw-grid-overlay.is-visible { opacity: 1; }
+	.cw-grid-overlay-cols {
+	  position: absolute;
+	  inset: 0;
+	  max-width: 1200px;
+	  margin: 0 auto;
+	  padding: 0 var(--container-pad);
+	  display: grid;
+	  grid-template-columns: repeat(12, 1fr);
+	  gap: 0 var(--col-gutter);
+	  box-sizing: border-box;
+	  width: 100%;
+	}
+	@media (min-width: 1536px) { .cw-grid-overlay-cols { max-width: 1440px; } }
+	@media (min-width: 1920px) { .cw-grid-overlay-cols { max-width: 1680px; } }
+	.cw-grid-col {
+	  height: 100vh;
+	  background: rgba(255, 80, 80, 0.07);
+	  border-left: 1px solid rgba(255, 60, 60, 0.18);
+	  box-sizing: border-box;
+	}
+	.cw-grid-col:last-child { border-right: 1px solid rgba(255, 60, 60, 0.18); }
+	.cw-grid-baseline {
+	  position: absolute;
+	  inset: 0;
+	  background-image: repeating-linear-gradient(
+	    to bottom,
+	    transparent 0px,
+	    transparent 7px,
+	    rgba(0, 100, 255, 0.06) 7px,
+	    rgba(0, 100, 255, 0.06) 8px
+	  );
+	}
+	/* Grid toggle button */
+	.cw-grid-toggle {
+	  position: fixed;
+	  bottom: 24px;
+	  right: 24px;
+	  z-index: 100000;
+	  background: #000;
+	  color: #fff;
+	  font-family: "TG-Frekuent-Mono-Regular", monospace;
+	  font-size: 0.45rem;
+	  letter-spacing: 0.14em;
+	  text-transform: uppercase;
+	  border: none;
+	  cursor: pointer;
+	  padding: 8px 14px;
+	  transition: opacity 150ms;
+	  line-height: 1;
+	}
+	.cw-grid-toggle:hover { opacity: 0.6; }
+	.cw-grid-toggle.is-active { background: rgba(255,60,60,0.85); color: #fff; }
+	/* Breakpoint indicator */
+	.cw-grid-bp {
+	  position: fixed;
+	  bottom: 52px;
+	  right: 24px;
+	  z-index: 100000;
+	  font-family: "TG-Frekuent-Mono-Regular", monospace;
+	  font-size: 0.4rem;
+	  letter-spacing: 0.1em;
+	  color: #9BA3AF;
+	  pointer-events: none;
+	  text-transform: uppercase;
+	}
+
 	</style>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-36927741-3"></script>
@@ -860,7 +1020,7 @@ gtag("config", "GT-M6QPZDV");
 						<header class="nav_diz8n37o0 semplice-navbar active-navbar sticky-nav  cover-transparent use-headroom non-container-nav"  data-cover-transparent="enabled" data-bg-overlay-visibility="hidden" data-mobile-fallback="enabled">
 							<div class="container" data-nav="logo-left-menu-right">
 								<div class="navbar-inner menu-type-text" data-xl-width="12" data-navbar-type="container">
-									<div class="logo navbar-left"><a  href="index.html" title="Charlie Clark"><img src="wp-content/uploads/Clark-1.svg" alt="logo"></a></div>
+									<div class="logo navbar-left"><a href="index.html" title="Charles Clark" class="cw-logo-link"><span class="cw-logo-text">Clark</span></a></div>
 									<nav class="standard navbar-right no-container" data-font="font_rhnvhwbo3"><ul class="menu"><li id="menu-item-1010" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-824 current_page_item menu-item-1010"><a href="index.html" aria-current="page"><span>Labs</span></a></li>
 <li id="menu-item-1783" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1783"><a href="info.html"><span>Info</span></a></li>
 </ul></nav>
@@ -872,6 +1032,13 @@ gtag("config", "GT-M6QPZDV");
 								    <circle class="ch-circle" cx="11" cy="11" r="2.5" stroke="#000" stroke-width="1" fill="none"/>
 								  </svg>
 								</button>
+								<!-- Swiss 4-zone nav supplement (desktop only) -->
+								<div class="cw-nav-tagline" aria-hidden="true">
+								  <span>Art direction &amp; brand design.</span>
+								</div>
+								<div class="cw-nav-contact" aria-hidden="true">
+								  <a href="mailto:charlieclark@gmail.com">charlieclark@gmail.com</a>
+								</div>
 							</div>
 						</div>
 					</header>
@@ -1890,5 +2057,20 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 	    }).catch(function(){});
 	}());
 	</script>
+<!-- ── Grid overlay ───────────────────────────────────────────────── -->
+<div class="cw-grid-overlay" id="cw-grid-overlay" aria-hidden="true" role="presentation">
+  <div class="cw-grid-overlay-cols">
+    <div class="cw-grid-col"></div><div class="cw-grid-col"></div>
+    <div class="cw-grid-col"></div><div class="cw-grid-col"></div>
+    <div class="cw-grid-col"></div><div class="cw-grid-col"></div>
+    <div class="cw-grid-col"></div><div class="cw-grid-col"></div>
+    <div class="cw-grid-col"></div><div class="cw-grid-col"></div>
+    <div class="cw-grid-col"></div><div class="cw-grid-col"></div>
+  </div>
+  <div class="cw-grid-baseline"></div>
+</div>
+<div class="cw-grid-bp" id="cw-grid-bp" aria-hidden="true">XL · 1200</div>
+<button class="cw-grid-toggle" id="cw-grid-toggle" aria-label="Toggle grid overlay" title="Press G to toggle grid">Grid</button>
+
 	</body>
 </html>

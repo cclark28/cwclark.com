@@ -597,6 +597,148 @@ gtag("config", "GT-M6QPZDV");
 	  .mega-nav-links a { font-size: 1.4rem; }
 	  .mega-top { padding-bottom: 1rem; margin-bottom: 1.25rem; }
 	}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SITE FOOTER
+   ═══════════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════════
+   SITE FOOTER
+   ═══════════════════════════════════════════════════════════════════ */
+.cw-footer {
+  width: 100%;
+  border-top: 1px solid #000;
+  background: #fff;
+  margin-top: 80px;
+}
+/* Clock zone — full bleed container */
+.cw-footer-clock-zone {
+  width: 100%;
+  padding: 40px 24px 32px;
+  border-bottom: 1px solid #E1E5EB;
+  box-sizing: border-box;
+}
+.cw-footer-clock {
+  font-family: "TG-Frekuent-Mono-Regular", "Courier New", monospace;
+  font-size: clamp(4.5rem, 16vw, 13.5rem);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: #000;
+  display: block;
+  white-space: nowrap;
+}
+.cw-footer-clock-sub {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.cw-footer-clock-loc {
+  font-family: "TG-Frekuent-Mono-Regular", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #000;
+}
+.cw-footer-clock-weather {
+  font-family: "TG-Frekuent-Mono-Light", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9BA3AF;
+}
+/* Info grid zone — contained */
+.cw-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 0;
+}
+.cw-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 32px;
+  padding-bottom: 48px;
+}
+.cw-footer-label {
+  display: block;
+  font-family: "TG-Frekuent-Mono-Regular", monospace;
+  font-size: 0.45rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9BA3AF;
+  margin-bottom: 16px;
+}
+.cw-footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cw-footer-nav a {
+  font-family: "neue-haas-grotesk-text", sans-serif;
+  font-size: 0.75rem;
+  color: #000;
+  text-decoration: none;
+  transition: opacity 150ms;
+}
+.cw-footer-nav a:hover { opacity: 0.4; }
+.cw-footer-status p {
+  font-family: "TG-Frekuent-Mono-Regular", monospace;
+  font-size: 0.6rem;
+  color: #000;
+  margin: 0 0 6px;
+  line-height: 1.4;
+}
+.cw-footer-email {
+  display: block;
+  font-family: "neue-haas-grotesk-text", sans-serif;
+  font-size: 0.75rem;
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+  padding-bottom: 2px;
+  margin-bottom: 12px;
+  transition: opacity 150ms;
+}
+.cw-footer-email:hover { opacity: 0.4; }
+.cw-footer-note {
+  font-family: "neue-haas-grotesk-text", sans-serif;
+  font-size: 0.65rem;
+  color: #9BA3AF;
+  line-height: 1.5;
+  margin: 0;
+}
+.cw-footer-rule {
+  height: 1px;
+  background: #000;
+  width: 100%;
+}
+.cw-footer-bottom {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 16px 0 24px;
+  font-family: "TG-Frekuent-Mono-Regular", monospace;
+  font-size: 0.45rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9BA3AF;
+}
+.cw-footer-bottom a {
+  color: #9BA3AF;
+  text-decoration: none;
+  transition: color 150ms;
+}
+.cw-footer-bottom a:hover { color: #000; }
+@media (max-width: 991px) {
+  .cw-footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 543px) {
+  .cw-footer-clock-zone { padding: 32px 16px 24px; }
+  .cw-footer-inner { padding: 32px 16px 0; }
+  .cw-footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .cw-footer-bottom { flex-wrap: wrap; gap: 16px; }
+}
 	</style>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-36927741-3"></script>
@@ -1325,6 +1467,74 @@ gtag("config", "GT-M6QPZDV");
 				</div>
 			</div>
 		</div>
+
+<footer class="cw-footer" role="contentinfo">
+
+  <!-- ── Massive clock zone ───────────────────────────────────────── -->
+  <div class="cw-footer-clock-zone">
+    <time class="cw-footer-clock" id="ft-clock" aria-live="polite" aria-label="Current time">00:00:00</time>
+    <div class="cw-footer-clock-sub">
+      <span class="cw-footer-clock-loc" id="ft-clock-loc">—</span>
+      <span class="cw-footer-clock-weather" id="ft-clock-weather">—</span>
+    </div>
+  </div>
+
+  <!-- ── Info grid ────────────────────────────────────────────────── -->
+  <div class="cw-footer-inner">
+    <div class="cw-footer-grid">
+
+      <div class="cw-footer-col">
+        <span class="cw-footer-label">Sitemap</span>
+        <nav class="cw-footer-nav" aria-label="Site navigation">
+          <a href="index.html">Labs</a>
+          <a href="info.html">Info</a>
+          <a href="works/terminus.html">Terminus</a>
+          <a href="works/gungeon.html">Enter the Gungeon</a>
+          <a href="works/asian-art-museum-san-francisco.html">Asian Art Museum</a>
+          <a href="works/delivra.html">Delivra</a>
+        </nav>
+      </div>
+
+      <div class="cw-footer-col">
+        <span class="cw-footer-label">Social</span>
+        <nav class="cw-footer-nav" aria-label="Social links">
+          <a href="https://linkedin.com/in/charleswclark" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/cclark28" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://twitter.com/charleswclarkII" target="_blank" rel="noopener">Twitter ↗</a>
+          <a href="https://instagram.com/charleswclark" target="_blank" rel="noopener">Instagram ↗</a>
+        </nav>
+      </div>
+
+      <div class="cw-footer-col">
+        <span class="cw-footer-label">What I'm up to</span>
+        <div class="cw-footer-status">
+          <p id="ft-location">—</p>
+          <p id="ft-condition">—</p>
+          <p id="ft-temp">—</p>
+        </div>
+      </div>
+
+      <div class="cw-footer-col">
+        <span class="cw-footer-label">Get in touch</span>
+        <div class="cw-footer-contact">
+          <a href="mailto:charlieclark@gmail.com" class="cw-footer-email">charlieclark@gmail.com</a>
+          <p class="cw-footer-note">Available for senior-level art direction,<br>brand, and product design roles.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cw-footer-rule"></div>
+
+    <div class="cw-footer-bottom">
+      <span>Charles Clark</span>
+      <span>All rights reserved</span>
+      <a href="mailto:charlieclark@gmail.com">Contact</a>
+      <span id="ft-year">©2026</span>
+    </div>
+
+  </div>
+</footer>
 	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="pswp__bg"></div>
 	<div class="pswp__scroll-wrap">
@@ -1561,6 +1771,45 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 	  /* Prevent Semplice's own menu listener from also firing */
 	  var sempliceHam = document.querySelector('.hamburger.semplice-menu');
 	  if (sempliceHam) sempliceHam.style.pointerEvents = 'none';
+	}());
+
+		/* Footer: massive clock + weather status */
+	(function(){
+	  var clockEl   = document.getElementById('ft-clock');
+	  var clockLoc  = document.getElementById('ft-clock-loc');
+	  var clockWx   = document.getElementById('ft-clock-weather');
+	  var ftLoc     = document.getElementById('ft-location');
+	  var ftCond    = document.getElementById('ft-condition');
+	  var ftTemp    = document.getElementById('ft-temp');
+	  var ftYear    = document.getElementById('ft-year');
+
+	  function p(n){ return n < 10 ? '0'+n : ''+n; }
+
+	  function tickBigClock(){
+	    var n = new Date();
+	    var str = p(n.getHours())+':'+p(n.getMinutes())+':'+p(n.getSeconds());
+	    if(clockEl) clockEl.textContent = str;
+	  }
+	  tickBigClock();
+	  setInterval(tickBigClock, 1000);
+
+	  if(ftYear) ftYear.textContent = '\u00a9'+new Date().getFullYear();
+
+	  fetch('content/location/current.json')
+	    .then(function(r){ return r.ok ? r.json() : null; })
+	    .then(function(d){
+	      if(!d) return;
+	      var city = (d.city||'').toUpperCase() + (d.region ? '  ·  '+(d.region).toUpperCase() : '');
+	      var wx   = (d.condition||'').toUpperCase()
+	               + (d.temp_f != null ? '  ·  '+d.temp_f+'\u00b0F' : '')
+	               + (d.temp_c != null ? ' / '+d.temp_c+'\u00b0C' : '')
+	               + (d.emoji  ? '  '+d.emoji : '');
+	      if(clockLoc)  clockLoc.textContent  = city;
+	      if(clockWx)   clockWx.textContent   = wx;
+	      if(ftLoc)     ftLoc.textContent     = d.city + (d.region ? ', '+d.region : '');
+	      if(ftCond)    ftCond.textContent    = (d.condition||'') + (d.emoji ? ' '+d.emoji : '');
+	      if(ftTemp)    ftTemp.textContent    = (d.temp_f != null ? d.temp_f+'\u00b0F' : '') + (d.temp_c != null ? ' / '+d.temp_c+'\u00b0C' : '');
+	    }).catch(function(){});
 	}());
 	</script>
 	</body>

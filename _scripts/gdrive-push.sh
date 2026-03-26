@@ -6,13 +6,14 @@
 # ─────────────────────────────────────────────────────────────────
 
 REMOTE_NAME="cwclark-gdrive"
+GDRIVE_FOLDER_ID="14AaVS3se9Nakyl4XN-S9oe-HaQDDFRHG"
 REPO_ROOT="$(git -C "$(dirname "$0")" rev-parse --show-toplevel 2>/dev/null || echo "$HOME/cwclark.com")"
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M")
 LOG="$REPO_ROOT/tasks/sync.log"
 
 mkdir -p "$REPO_ROOT/tasks"
 
-echo "[$TIMESTAMP] gdrive-push: starting..." >> "$LOG"
+echo "[$TIMESTAMP] gdrive-push: starting (folder: $GDRIVE_FOLDER_ID)..." >> "$LOG"
 
 # ── Verify remote ────────────────────────────────────────────────
 if ! rclone listremotes | grep -q "^${REMOTE_NAME}:"; then
@@ -21,32 +22,42 @@ if ! rclone listremotes | grep -q "^${REMOTE_NAME}:"; then
   exit 1
 fi
 
+# Common rclone flags — locked to the specific Drive folder
+RCLONE_FLAGS=(
+  "--drive-root-folder-id=$GDRIVE_FOLDER_ID"
+  "--log-file=$LOG"
+  "--log-level=INFO"
+)
+
+# ── Optimise images before pushing ───────────────────────────────
+echo "  ▶ Optimising images before push..."
+bash "$REPO_ROOT/_scripts/optimize-images.sh"
+
 # ── Push: assets/images/uploads → Drive ──────────────────────────
 echo "  → Pushing uploads..."
 rclone sync "$REPO_ROOT/assets/images/uploads" \
   "${REMOTE_NAME}:assets/images/uploads" \
   --progress \
-  --log-file="$LOG" \
-  --log-level INFO \
+  "${RCLONE_FLAGS[@]}" \
   2>/dev/null
 
 # ── Push: assets/fonts → Drive ───────────────────────────────────
 echo "  → Pushing fonts..."
 rclone sync "$REPO_ROOT/assets/fonts" \
   "${REMOTE_NAME}:assets/fonts" \
-  --log-file="$LOG" --log-level INFO 2>/dev/null
+  "${RCLONE_FLAGS[@]}" 2>/dev/null
 
 # ── Push: assets/graphics → Drive ────────────────────────────────
 echo "  → Pushing graphics..."
 rclone sync "$REPO_ROOT/assets/graphics" \
   "${REMOTE_NAME}:assets/graphics" \
-  --log-file="$LOG" --log-level INFO 2>/dev/null
+  "${RCLONE_FLAGS[@]}" 2>/dev/null
 
 # ── Push: content → Drive ────────────────────────────────────────
 echo "  → Pushing content..."
 rclone sync "$REPO_ROOT/content" \
   "${REMOTE_NAME}:content" \
-  --log-file="$LOG" --log-level INFO 2>/dev/null
+  "${RCLONE_FLAGS[@]}" 2>/dev/null
 
 # ── Push: site backup (zip) → Drive ──────────────────────────────
 echo "  → Creating site backup..."

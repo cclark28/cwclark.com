@@ -332,7 +332,7 @@ gtag("config", "GT-M6QPZDV");
 						padding-top: 0.4444444444444444rem;
 					}
 					#content-824 #content_cl9cnwe2o nav ul li a {
-						color: #5375ff;
+						color: #000000;
 						text-transform: none;
 					}
 					#content-824 #content_cl9cnwe2o nav ul li a:hover,
@@ -613,40 +613,83 @@ gtag("config", "GT-M6QPZDV");
 /* Clock zone — full bleed container */
 .cw-footer-clock-zone {
   width: 100%;
-  padding: 40px 24px 32px;
   border-bottom: 1px solid #E1E5EB;
+}
+.cw-footer-clock-zone-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 40px;
   box-sizing: border-box;
 }
 .cw-footer-clock {
   font-family: "TG-Frekuent-Mono-Regular", "Courier New", monospace;
-  font-size: clamp(4.5rem, 16vw, 13.5rem);
+  font-size: clamp(4rem, 15vw, 12rem);
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
-  line-height: 1;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
   color: #000;
   display: block;
   white-space: nowrap;
+  margin-bottom: 24px;
 }
-.cw-footer-clock-sub {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  margin-top: 16px;
-  flex-wrap: wrap;
+.cw-footer-clock-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid #000;
+  padding-top: 16px;
 }
-.cw-footer-clock-loc {
+.cw-footer-clock-cell {
+  padding-right: 24px;
+  border-right: 1px solid #E1E5EB;
+  padding-left: 0;
+}
+.cw-footer-clock-cell:first-child { padding-left: 0; }
+.cw-footer-clock-cell:last-child { border-right: none; padding-left: 24px; padding-right: 0; }
+.cw-footer-clock-cell:nth-child(2) { padding-left: 24px; }
+.cw-footer-clock-label {
   font-family: "TG-Frekuent-Mono-Regular", monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #000;
-}
-.cw-footer-clock-weather {
-  font-family: "TG-Frekuent-Mono-Light", monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.08em;
+  font-size: 0.42rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #9BA3AF;
+  display: block;
+  margin-bottom: 6px;
+}
+.cw-footer-clock-val {
+  font-family: "TG-Frekuent-Mono-Regular", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000;
+  display: block;
+  line-height: 1.5;
+}
+.cw-footer-clock-val--sub {
+  font-family: "TG-Frekuent-Mono-Light", monospace;
+  font-size: 0.55rem;
+  color: #9BA3AF;
+  display: block;
+  line-height: 1.4;
+}
+/* Waldo pixel head */
+.cw-waldo {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 8px;
+}
+.cw-waldo svg { flex-shrink: 0; image-rendering: pixelated; }
+.cw-waldo-text { }
+@media (max-width: 767px) {
+  .cw-footer-clock-meta { grid-template-columns: 1fr 1fr; }
+  .cw-footer-clock-cell:nth-child(3) { border-right: none; padding-left: 0; padding-top: 16px; grid-column: 1 / -1; border-top: 1px solid #E1E5EB; }
+}
+@media (max-width: 543px) {
+  .cw-footer-clock-zone-inner { padding: 32px 16px 32px; }
+  .cw-footer-clock-meta { grid-template-columns: 1fr; }
+  .cw-footer-clock-cell { border-right: none; border-bottom: 1px solid #E1E5EB; padding: 12px 0; }
+  .cw-footer-clock-cell:last-child { border-bottom: none; }
 }
 /* Info grid zone — contained */
 .cw-footer-inner {
@@ -682,6 +725,14 @@ gtag("config", "GT-M6QPZDV");
   transition: opacity 150ms;
 }
 .cw-footer-nav a:hover { opacity: 0.4; }
+.cw-footer-status-line {
+  font-family: "TG-Frekuent-Mono-Regular", monospace;
+  font-size: 0.6rem;
+  color: #000;
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+.cw-footer-status-line:last-child { color: #9BA3AF; margin-bottom: 0; }
 .cw-footer-status p {
   font-family: "TG-Frekuent-Mono-Regular", monospace;
   font-size: 0.6rem;
@@ -1353,7 +1404,7 @@ gtag("config", "GT-M6QPZDV");
         font-weight: normal;
     }
     #location-section a:hover {
-        color: blue;
+        color: #000;
     }
 </style>
 				</div>
@@ -1448,19 +1499,6 @@ gtag("config", "GT-M6QPZDV");
 			
 					</div>
 				</div></div></div>
-					</section>
-
-				<section id="section_5a7ba044f" class="content-block" data-column-mode-sm="single" data-column-mode-xs="single" data-layout="fluid" data-height="dynamic" data-justify="center" data-valign="center" data-gutter="no" >
-						<div class="container"><div id="row_cd8c5f6cc" class="row"><div id="column_8eff47ce2" class="column" data-xl-width="12" data-valign="stretch" >
-					<div class="content-wrapper">
-						
-						
-				<div id="content_97e11cf99" class="column-content" data-module="image" >
-					<div class="ce-image" data-align="center"><img class="is-content"  src="wp-content/uploads/clark-3.svg" alt="clark" caption="" data-width="grid-width" data-scaling="no"></div>
-				</div>
-			
-					</div>
-				</div></div></div>
 					</section>				
 				
 					</div>
@@ -1470,12 +1508,31 @@ gtag("config", "GT-M6QPZDV");
 
 <footer class="cw-footer" role="contentinfo">
 
-  <!-- ── Massive clock zone ───────────────────────────────────────── -->
+  <!-- ── Massive clock zone, grid-aligned ─────────────────────────── -->
   <div class="cw-footer-clock-zone">
-    <time class="cw-footer-clock" id="ft-clock" aria-live="polite" aria-label="Current time">00:00:00</time>
-    <div class="cw-footer-clock-sub">
-      <span class="cw-footer-clock-loc" id="ft-clock-loc">—</span>
-      <span class="cw-footer-clock-weather" id="ft-clock-weather">—</span>
+    <div class="cw-footer-clock-zone-inner">
+      <time class="cw-footer-clock" id="ft-clock" aria-live="polite" aria-label="Current time">00:00:00</time>
+      <div class="cw-footer-clock-meta">
+
+        <div class="cw-footer-clock-cell">
+          <span class="cw-footer-clock-label">Location</span>
+          <span class="cw-footer-clock-val" id="ft-clock-city">—</span>
+          <span class="cw-footer-clock-val--sub" id="ft-clock-region">—</span>
+        </div>
+
+        <div class="cw-footer-clock-cell">
+          <span class="cw-footer-clock-label">Weather</span>
+          <span class="cw-footer-clock-val" id="ft-clock-condition">—</span>
+          <span class="cw-footer-clock-val--sub" id="ft-clock-temp">—</span>
+        </div>
+
+        <div class="cw-footer-clock-cell">
+          <span class="cw-footer-clock-label">Wind &amp; Humidity</span>
+          <span class="cw-footer-clock-val" id="ft-clock-wind">—</span>
+          <span class="cw-footer-clock-val--sub" id="ft-clock-updated">—</span>
+        </div>
+
+      </div>
     </div>
   </div>
 
@@ -1495,22 +1552,32 @@ gtag("config", "GT-M6QPZDV");
         </nav>
       </div>
 
-      <div class="cw-footer-col">
-        <span class="cw-footer-label">Social</span>
-        <nav class="cw-footer-nav" aria-label="Social links">
-          <a href="https://linkedin.com/in/charleswclark" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a href="https://github.com/cclark28" target="_blank" rel="noopener">GitHub ↗</a>
-          <a href="https://twitter.com/charleswclarkII" target="_blank" rel="noopener">Twitter ↗</a>
-          <a href="https://instagram.com/charleswclark" target="_blank" rel="noopener">Instagram ↗</a>
-        </nav>
-      </div>
-
-      <div class="cw-footer-col">
+      <div class="cw-footer-col" style="grid-column: span 2;">
         <span class="cw-footer-label">What I'm up to</span>
-        <div class="cw-footer-status">
-          <p id="ft-location">—</p>
-          <p id="ft-condition">—</p>
-          <p id="ft-temp">—</p>
+        <div class="cw-waldo">
+          <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Pixel portrait" role="img" style="image-rendering:pixelated">
+<rect x="24" y="0" width="4" height="4" fill="#000"/><rect x="28" y="0" width="4" height="4" fill="#000"/><rect x="32" y="0" width="4" height="4" fill="#000"/><rect x="36" y="0" width="4" height="4" fill="#000"/>
+<rect x="16" y="4" width="4" height="4" fill="#000"/><rect x="20" y="4" width="4" height="4" fill="#000"/><rect x="40" y="4" width="4" height="4" fill="#000"/><rect x="44" y="4" width="4" height="4" fill="#000"/>
+<rect x="12" y="8" width="4" height="4" fill="#000"/><rect x="48" y="8" width="4" height="4" fill="#000"/>
+<rect x="8" y="12" width="4" height="4" fill="#000"/><rect x="52" y="12" width="4" height="4" fill="#000"/>
+<rect x="4" y="16" width="4" height="4" fill="#000"/><rect x="20" y="16" width="4" height="4" fill="#000"/><rect x="24" y="16" width="4" height="4" fill="#000"/><rect x="36" y="16" width="4" height="4" fill="#000"/><rect x="40" y="16" width="4" height="4" fill="#000"/><rect x="56" y="16" width="4" height="4" fill="#000"/>
+<rect x="4" y="20" width="4" height="4" fill="#000"/><rect x="20" y="20" width="4" height="4" fill="#000"/><rect x="24" y="20" width="4" height="4" fill="#000"/><rect x="36" y="20" width="4" height="4" fill="#000"/><rect x="40" y="20" width="4" height="4" fill="#000"/><rect x="56" y="20" width="4" height="4" fill="#000"/>
+<rect x="4" y="24" width="4" height="4" fill="#000"/><rect x="56" y="24" width="4" height="4" fill="#000"/>
+<rect x="4" y="28" width="4" height="4" fill="#000"/><rect x="12" y="28" width="4" height="4" fill="#000"/><rect x="48" y="28" width="4" height="4" fill="#000"/><rect x="56" y="28" width="4" height="4" fill="#000"/>
+<rect x="4" y="32" width="4" height="4" fill="#000"/><rect x="16" y="32" width="4" height="4" fill="#000"/><rect x="44" y="32" width="4" height="4" fill="#000"/><rect x="56" y="32" width="4" height="4" fill="#000"/>
+<rect x="4" y="36" width="4" height="4" fill="#000"/><rect x="20" y="36" width="4" height="4" fill="#000"/><rect x="24" y="36" width="4" height="4" fill="#000"/><rect x="28" y="36" width="4" height="4" fill="#000"/><rect x="32" y="36" width="4" height="4" fill="#000"/><rect x="36" y="36" width="4" height="4" fill="#000"/><rect x="40" y="36" width="4" height="4" fill="#000"/><rect x="56" y="36" width="4" height="4" fill="#000"/>
+<rect x="4" y="40" width="4" height="4" fill="#000"/><rect x="56" y="40" width="4" height="4" fill="#000"/>
+<rect x="8" y="44" width="4" height="4" fill="#000"/><rect x="52" y="44" width="4" height="4" fill="#000"/>
+<rect x="12" y="48" width="4" height="4" fill="#000"/><rect x="48" y="48" width="4" height="4" fill="#000"/>
+<rect x="16" y="52" width="4" height="4" fill="#000"/><rect x="20" y="52" width="4" height="4" fill="#000"/><rect x="40" y="52" width="4" height="4" fill="#000"/><rect x="44" y="52" width="4" height="4" fill="#000"/>
+<rect x="24" y="56" width="4" height="4" fill="#000"/><rect x="28" y="56" width="4" height="4" fill="#000"/><rect x="32" y="56" width="4" height="4" fill="#000"/><rect x="36" y="56" width="4" height="4" fill="#000"/>
+</svg>
+          <div class="cw-waldo-text">
+            <p id="ft-location" class="cw-footer-status-line">—</p>
+            <p id="ft-condition" class="cw-footer-status-line">—</p>
+            <p id="ft-temp" class="cw-footer-status-line">—</p>
+            <p id="ft-wind" class="cw-footer-status-line">—</p>
+          </div>
         </div>
       </div>
 
@@ -1518,7 +1585,7 @@ gtag("config", "GT-M6QPZDV");
         <span class="cw-footer-label">Get in touch</span>
         <div class="cw-footer-contact">
           <a href="mailto:charlieclark@gmail.com" class="cw-footer-email">charlieclark@gmail.com</a>
-          <p class="cw-footer-note">Available for senior-level art direction,<br>brand, and product design roles.</p>
+          <p class="cw-footer-note">Available for senior-level<br>art direction, brand, and<br>product design roles.</p>
         </div>
       </div>
 
@@ -1535,6 +1602,9 @@ gtag("config", "GT-M6QPZDV");
 
   </div>
 </footer>
+<div class="cw-clark-signature" aria-hidden="true">
+  <img src="wp-content/uploads/clark-3.svg" alt="Clark" style="display:block;width:100%;height:auto;">
+</div>
 	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="pswp__bg"></div>
 	<div class="pswp__scroll-wrap">
@@ -1775,40 +1845,48 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 
 		/* Footer: massive clock + weather status */
 	(function(){
-	  var clockEl   = document.getElementById('ft-clock');
-	  var clockLoc  = document.getElementById('ft-clock-loc');
-	  var clockWx   = document.getElementById('ft-clock-weather');
-	  var ftLoc     = document.getElementById('ft-location');
-	  var ftCond    = document.getElementById('ft-condition');
-	  var ftTemp    = document.getElementById('ft-temp');
-	  var ftYear    = document.getElementById('ft-year');
-
 	  function p(n){ return n < 10 ? '0'+n : ''+n; }
 
+	  /* Big ticking clock */
+	  var clockEl = document.getElementById('ft-clock');
 	  function tickBigClock(){
 	    var n = new Date();
-	    var str = p(n.getHours())+':'+p(n.getMinutes())+':'+p(n.getSeconds());
-	    if(clockEl) clockEl.textContent = str;
+	    if(clockEl) clockEl.textContent = p(n.getHours())+':'+p(n.getMinutes())+':'+p(n.getSeconds());
 	  }
 	  tickBigClock();
 	  setInterval(tickBigClock, 1000);
 
+	  /* Copyright year */
+	  var ftYear = document.getElementById('ft-year');
 	  if(ftYear) ftYear.textContent = '\u00a9'+new Date().getFullYear();
 
+	  /* Weather + location data */
 	  fetch('content/location/current.json')
 	    .then(function(r){ return r.ok ? r.json() : null; })
 	    .then(function(d){
 	      if(!d) return;
-	      var city = (d.city||'').toUpperCase() + (d.region ? '  ·  '+(d.region).toUpperCase() : '');
-	      var wx   = (d.condition||'').toUpperCase()
-	               + (d.temp_f != null ? '  ·  '+d.temp_f+'\u00b0F' : '')
-	               + (d.temp_c != null ? ' / '+d.temp_c+'\u00b0C' : '')
-	               + (d.emoji  ? '  '+d.emoji : '');
-	      if(clockLoc)  clockLoc.textContent  = city;
-	      if(clockWx)   clockWx.textContent   = wx;
-	      if(ftLoc)     ftLoc.textContent     = d.city + (d.region ? ', '+d.region : '');
-	      if(ftCond)    ftCond.textContent    = (d.condition||'') + (d.emoji ? ' '+d.emoji : '');
-	      if(ftTemp)    ftTemp.textContent    = (d.temp_f != null ? d.temp_f+'\u00b0F' : '') + (d.temp_c != null ? ' / '+d.temp_c+'\u00b0C' : '');
+	      var city    = (d.city||'').toUpperCase();
+	      var region  = ((d.region||'') + (d.country ? '  ·  '+(d.country||'') : '')).toUpperCase();
+	      var cond    = (d.condition||'').toUpperCase() + (d.emoji ? '  '+d.emoji : '');
+	      var temp    = (d.temp_f != null ? d.temp_f+'\u00b0F' : '') + (d.temp_c != null ? '  /  '+d.temp_c+'\u00b0C' : '');
+	      var wind    = (d.wind_mph != null ? d.wind_mph+' MPH '+( d.wind_dir||'') : '').toUpperCase();
+	      var hum     = d.humidity != null ? 'HUMIDITY  '+d.humidity+'%' : '';
+	      var updated = d.updated ? 'UPDATED  '+(d.updated||'').slice(0,16).replace('T','  ') : '';
+
+	      /* Clock meta cells */
+	      var el; 
+	      if((el=document.getElementById('ft-clock-city')))    el.textContent = city;
+	      if((el=document.getElementById('ft-clock-region')))  el.textContent = region;
+	      if((el=document.getElementById('ft-clock-condition')))el.textContent = cond;
+	      if((el=document.getElementById('ft-clock-temp')))    el.textContent = temp;
+	      if((el=document.getElementById('ft-clock-wind')))    el.textContent = wind;
+	      if((el=document.getElementById('ft-clock-updated'))) el.textContent = hum + (hum && updated ? '  ·  ' : '') + updated;
+
+	      /* Waldo section */
+	      if((el=document.getElementById('ft-location')))  el.textContent = (d.city||'') + (d.region ? ', '+d.region : '');
+	      if((el=document.getElementById('ft-condition'))) el.textContent = (d.condition||'') + (d.emoji ? ' '+d.emoji : '');
+	      if((el=document.getElementById('ft-temp')))      el.textContent = temp;
+	      if((el=document.getElementById('ft-wind')))      el.textContent = wind.toLowerCase() + (d.humidity ? '  ·  humidity '+d.humidity+'%' : '');
 	    }).catch(function(){});
 	}());
 	</script>

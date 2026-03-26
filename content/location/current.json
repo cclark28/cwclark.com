@@ -1,14 +1,13 @@
 {
   "city": "Indianapolis",
-  "region": "IN",
-  "country": "US",
-  "temp_f": null,
-  "temp_c": null,
-  "condition": null,
-  "wind_mph": null,
-  "wind_dir": null,
-  "humidity": null,
-  "emoji": "🏙️",
-  "updated": null,
-  "note": "Update by running ./_scripts/checkin.sh"
+  "region": "Indiana",
+  "country": "United States of America",
+  "temp_f": 69,
+  "temp_c": 21,
+  "condition": "Overcast",
+  "wind_mph": 12,
+  "wind_dir": "SW",
+  "humidity": 33,
+  "emoji": "\ud83c\udf24\ufe0f",
+  "updated": "2026-03-25T19:58:00"
 }

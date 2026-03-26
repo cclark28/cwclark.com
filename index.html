@@ -344,6 +344,78 @@ gtag("config", "GT-M6QPZDV");
 <link rel="apple-touch-icon" href="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/cropped-favicon-1.png?fit=180,180&amp;ssl=1" />
 <meta name="msapplication-TileImage" content="https://i0.wp.com/www.charleswclark.com/wp-content/uploads/cropped-favicon-1.png?fit=270%2C270&#038;ssl=1" />
 		<style>html{margin-top:0px!important;}#wpadminbar{top:auto!important;bottom:0;}</style>
+	<style>
+	/* ── Weather Footer Widget ───────────────────────────────────────── */
+	#cw-weather-section {
+	  border-top: 1px solid #E1E5EB;
+	  border-bottom: 1px solid #E1E5EB;
+	  background: #fff;
+	}
+	#cw-weather-section[hidden] { display: none; }
+	#cw-weather-section .column .content-wrapper {
+	  padding-top: 1rem !important;
+	  padding-bottom: 1rem !important;
+	}
+	#cw-weather-section p {
+	  margin: 0 0 0.2rem;
+	  font-family: "neue-haas-grotesk-text", system-ui, sans-serif;
+	  font-size: 0.75rem;
+	  line-height: 1.5;
+	  color: #000;
+	}
+	#cw-weather-section .cw-location {
+	  font-family: "neue-haas-grotesk-text", system-ui, sans-serif;
+	  font-weight: 700;
+	  font-size: 0.75rem;
+	  letter-spacing: 0.01em;
+	  margin-bottom: 0.2rem !important;
+	}
+	#cw-weather-section .cw-temp {
+	  font-family: "neue-haas-grotesk-text", system-ui, sans-serif;
+	  font-weight: 700;
+	  font-size: 0.75rem;
+	  font-variant-numeric: tabular-nums;
+	  letter-spacing: -0.01em;
+	  margin-bottom: 0.2rem !important;
+	}
+	#cw-weather-section .cw-meta {
+	  font-weight: 400;
+	  color: #9BA3AF;
+	  font-size: 0.75rem;
+	}
+	#cw-weather-section .cw-divider {
+	  display: inline-block;
+	  width: 1px;
+	  height: 0.65rem;
+	  background: #E1E5EB;
+	  vertical-align: middle;
+	  margin: 0 0.4rem;
+	}
+	/* Analog clock */
+	#cw-weather-section .cw-clock-wrap {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	}
+	#cw-clock {
+	  width: 36px;
+	  height: 36px;
+	  display: block;
+	  overflow: visible;
+	}
+	/* Right column */
+	#cw-weather-section .cw-right-wrap {
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	  align-items: flex-end;
+	  text-align: right;
+	}
+	@media (max-width: 543px) {
+	  #cw-weather-section .cw-clock-wrap { justify-content: flex-start; }
+	  #cw-weather-section .cw-right-wrap { align-items: flex-start; text-align: left; }
+	}
+	</style>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-36927741-3"></script>
 <script>
@@ -886,7 +958,60 @@ gtag("config", "GT-M6QPZDV");
 				</div></div></div>
 					</section>				
 				
-					<section id="section_5a7ba044f" class="content-block" data-column-mode-sm="single" data-column-mode-xs="single" data-layout="fluid" data-height="dynamic" data-justify="center" data-valign="center" data-gutter="no" >
+					<!-- ── Weather Footer Widget ───────────────────────────────── -->
+				<section id="cw-weather-section" aria-label="Current location and weather" hidden>
+				  <div class="container">
+				    <div class="row">
+
+				      <!-- Col 1: 7/12 — location + conditions -->
+				      <div class="column" data-xl-width="7" data-sm-width="6" data-xs-width="12">
+				        <div class="content-wrapper">
+				          <p id="cw-city" class="cw-location" aria-live="polite">—</p>
+				          <p class="cw-meta">
+				            <span id="cw-condition">—</span>
+				            <span class="cw-divider" aria-hidden="true"></span>
+				            Wind <span id="cw-wind">—</span>
+				            <span class="cw-divider" aria-hidden="true"></span>
+				            Humidity <span id="cw-humidity">—</span>
+				          </p>
+				        </div>
+				      </div>
+
+				      <!-- Col 2: 2/12 — analog clock -->
+				      <div class="column" data-xl-width="2" data-sm-width="2" data-xs-width="4">
+				        <div class="content-wrapper cw-clock-wrap">
+				          <svg id="cw-clock" viewBox="0 0 40 40" aria-label="Current local time" role="img">
+				            <!-- Face -->
+				            <circle cx="20" cy="20" r="18" fill="none" stroke="#000" stroke-width="1"/>
+				            <!-- Cardinal ticks -->
+				            <line x1="20" y1="3"  x2="20" y2="6"  stroke="#000" stroke-width="1"/>
+				            <line x1="37" y1="20" x2="34" y2="20" stroke="#000" stroke-width="1"/>
+				            <line x1="20" y1="37" x2="20" y2="34" stroke="#000" stroke-width="1"/>
+				            <line x1="3"  y1="20" x2="6"  y2="20" stroke="#000" stroke-width="1"/>
+				            <!-- Hour hand -->
+				            <line id="cw-hour"   x1="20" y1="20" x2="20" y2="10" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+				            <!-- Minute hand -->
+				            <line id="cw-minute" x1="20" y1="20" x2="20" y2="6"  stroke="#000" stroke-width="1"   stroke-linecap="round"/>
+				            <!-- Centre dot -->
+				            <circle cx="20" cy="20" r="1" fill="#000"/>
+				          </svg>
+				        </div>
+				      </div>
+
+				      <!-- Col 3: 3/12 — temp + date -->
+				      <div class="column" data-xl-width="3" data-sm-width="4" data-xs-width="8">
+				        <div class="content-wrapper cw-right-wrap">
+				          <p class="cw-temp" id="cw-temp">—</p>
+				          <p class="cw-meta" id="cw-updated">—</p>
+				        </div>
+				      </div>
+
+				    </div>
+				  </div>
+				</section>
+				<!-- ── End Weather Widget ──────────────────────────────────── -->
+
+				<section id="section_5a7ba044f" class="content-block" data-column-mode-sm="single" data-column-mode-xs="single" data-layout="fluid" data-height="dynamic" data-justify="center" data-valign="center" data-gutter="no" >
 						<div class="container"><div id="row_cd8c5f6cc" class="row"><div id="column_8eff47ce2" class="column" data-xl-width="12" data-valign="stretch" >
 					<div class="content-wrapper">
 						
@@ -1052,5 +1177,70 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 
         typeWriter();  // Start the typing effect
     });
-});</script>	</body>
+});</script>
+
+	<script>
+	/* ── Weather Footer Widget — reads content/location/current.json ── */
+	(function () {
+	  var widget = document.getElementById('cw-weather-section');
+	  if (!widget) return;
+
+	  /* ── Analog clock ── */
+	  var cx = 20, cy = 20;
+	  var hourHand   = document.getElementById('cw-hour');
+	  var minuteHand = document.getElementById('cw-minute');
+
+	  function handEnd(cx, cy, angleDeg, length) {
+	    var rad = (angleDeg - 90) * Math.PI / 180;
+	    return { x: cx + length * Math.cos(rad), y: cy + length * Math.sin(rad) };
+	  }
+
+	  function tickClock() {
+	    var now = new Date();
+	    var h = now.getHours() % 12;
+	    var m = now.getMinutes();
+	    var s = now.getSeconds();
+	    var hourDeg   = (h * 30) + (m * 0.5);
+	    var minuteDeg = (m * 6)  + (s * 0.1);
+	    var hEnd = handEnd(cx, cy, hourDeg,   9);
+	    var mEnd = handEnd(cx, cy, minuteDeg, 13);
+	    if (hourHand)   { hourHand.setAttribute('x2',   hEnd.x); hourHand.setAttribute('y2',   hEnd.y); }
+	    if (minuteHand) { minuteHand.setAttribute('x2', mEnd.x); minuteHand.setAttribute('y2', mEnd.y); }
+	  }
+
+	  tickClock();
+	  setInterval(tickClock, 1000);
+
+	  /* ── Weather data ── */
+	  fetch('content/location/current.json')
+	    .then(function (r) { return r.ok ? r.json() : null; })
+	    .then(function (d) {
+	      if (!d || !d.city || !d.condition) return;
+
+	      var city     = d.city + (d.region ? ', ' + d.region : '');
+	      var tempF    = d.temp_f != null ? d.temp_f + '°F' : '—';
+	      var tempC    = d.temp_c != null ? ' / ' + d.temp_c + '°C' : '';
+	      var wind     = d.wind_mph != null ? d.wind_mph + ' mph ' + (d.wind_dir || '') : '—';
+	      var humidity = d.humidity != null ? d.humidity + '%' : '—';
+	      var updated  = d.updated
+	        ? (function (s) {
+	            var dt = new Date(s);
+	            return isNaN(dt) ? s.slice(0, 10)
+	              : dt.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+	          })(d.updated)
+	        : '';
+
+	      document.getElementById('cw-city').textContent      = city;
+	      document.getElementById('cw-condition').textContent = d.condition;
+	      document.getElementById('cw-wind').textContent      = wind;
+	      document.getElementById('cw-humidity').textContent  = humidity;
+	      document.getElementById('cw-temp').textContent      = tempF + tempC;
+	      document.getElementById('cw-updated').textContent   = updated;
+
+	      widget.removeAttribute('hidden');
+	    })
+	    .catch(function () { /* fail silently — widget stays hidden */ });
+	}());
+	</script>
+	</body>
 </html>
